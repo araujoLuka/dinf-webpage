@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&display=swap');
+
+html,
+body,
+#root,
+main {
+    width: 100%;
+    height: 100%;
+    font-family: 'Rubik', sans-serif;
+    background: #1c1c1c;
+    color: #fff;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* link with color for dark background */
+/* a { */
+/*     text-decoration: none; */
+/*     color: #2455fc; */
+/*     &:hover { */
+/*         color: #5d7efc */
+/*     } */
+/*     &:visited { */
+/*         color: #24a0fc; */
+/*         &:hover { */
+/*             color: #5d7efc; */
+/*         } */
+/*     } */
+/* } */
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+li {
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+button {
+    border: none;
+    width: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #2455fc;
+    color: #fff;
+    &:hover {
+        background: #5d7efc;
+    }
+    & > a {
+        font-weight: 600;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
