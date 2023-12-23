@@ -78,7 +78,12 @@ button:hover {
 }
 
 ::-webkit-scrollbar {
-	width: 0.5rem;
+	width: 0.05rem;
+    padding: 0 0.1rem;
+}
+
+::-webkit-scrollbar:hover {
+    width: 0.1rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -94,6 +99,7 @@ button:hover {
 	background: #ccc;
     border-radius: 0.5rem;
     padding: 0 0.25rem;
+    height: 15vh;
 }
 
 ::-webkit-scrollbar-thumb:hover {
