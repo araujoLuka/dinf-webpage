@@ -26,6 +26,10 @@ article {
 	align-items: center;
 }
 
+section {
+    margin-bottom: 3rem;
+}
+
 article {
     padding: 1rem;
 }

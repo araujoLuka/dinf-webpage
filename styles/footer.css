@@ -130,12 +130,13 @@ footer h2 {
     footer {
         text-align: center;
         align-items: center;
+        padding: 3rem;
     }
 
     footer .links {
         width: 100%;
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 3rem;
     }
 
     footer .links h2 {
@@ -156,7 +157,7 @@ footer h2 {
         flex-direction: row;
         align-items: stretch;
         justify-content: center;
-        gap: 0.5rem;
+        gap: 1rem;
     }
 
     footer .links div a {
@@ -178,7 +179,8 @@ footer h2 {
 
     footer .legal span,
     footer .legal a {
-        font-size: 1rem;
+        font-size: 0.75rem;
+        line-height: 2rem;
     }
 
     footer .bottom {
