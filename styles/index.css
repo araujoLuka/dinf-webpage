@@ -78,17 +78,15 @@ button:hover {
 }
 
 ::-webkit-scrollbar {
-	width: 0.05rem;
-    padding: 0 0.1rem;
+	width: 0.25rem;
 }
 
 ::-webkit-scrollbar:hover {
-    width: 0.1rem;
+    width: 0.5rem;
 }
 
 ::-webkit-scrollbar-track {
-    /* transparent */
-    background: rgba(0, 0, 0, 0);
+    background: #444;
 }
 
 ::-webkit-scrollbar-track:hover {
@@ -96,12 +94,10 @@ button:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-	background: #ccc;
+    background: #ccc;
     border-radius: 0.5rem;
-    padding: 0 0.25rem;
-    height: 15vh;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: #17f;
+	background: #2455fc;
 }
