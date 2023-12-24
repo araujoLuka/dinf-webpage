@@ -31,35 +31,89 @@ section {
 }
 
 article {
-    padding: 1rem;
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 h1 {
 	font-size: 3rem;
-	margin-bottom: 20px;
+	margin-bottom: 1rem;
+    margin-top: 1.5rem;
 }
 
-a {
+button > a {
 	text-decoration: none;
 	color: #fff;
 }
 
-ul {
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+article p,
+article span {
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+article p, article a {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+ul.text-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0;
+    margin-top: 1rem;
+    padding: 0;
+    background-color: #222;
+    border-radius: 15px;
+    border: 1px solid #444;
+
+    a {
+        font-weight: 600;
+        color: #2455fc;
+        font-size: 18px;
+    }
+    
+    a:hover {
+        color: #5d7efc;
+    }
+
+    li {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        line-height: 1.5rem;
+        width: 80%;
+        justify-self: center;
+    }
+}
+
+ul.button-list {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 	display: flex;
-}
 
-li {
-	margin-left: 10px;
-	margin-right: 10px;
-	text-align: center;
+    li {
+        margin-left: 10px;
+        margin-right: 10px;
+        text-align: center;
+    }
 }
 
 button {
 	border: none;
-	width: 100px;
+	width: 150px;
 	padding: 10px;
 	border-radius: 5px;
 	cursor: pointer;
@@ -67,6 +121,7 @@ button {
 	color: #fff;
 	> a {
 		font-weight: 600;
+        font-size: 14px;
 	}
 	transition: all 0.3s ease;
 }
@@ -74,7 +129,7 @@ button {
 button:hover {
 	background: #5d7efc;
 	box-shadow: 0 0 10px #5d7efc;
-	width: 150px;
+	width: 200px;
 }
 
 ::-webkit-scrollbar {
@@ -105,3 +160,19 @@ button:hover {
 ::-webkit-scrollbar-thumb:hover {
 	background: #17f;
 }
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    article p,
+    article span {
+        font-size: 12px;
+    }
+
+    ul.text-list {
+        grid-template-columns: 1fr;
+    }
+}
+
