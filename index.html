@@ -7,59 +7,117 @@
     <title>Home | Lucas Araujo</title>
     <link rel="icon" href="images/activity.svg" />
 
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="My personal home page" />
     <meta name="author" content="Lucas Correia de Araujo" />
 
+    <link rel="stylesheet" href="styles/cake.css" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="styles/index.css" />
-    <link rel="stylesheet" href="styles/footer.css" />
+
+    <!-- Script para exibir o vídeo ao clicar no botão -->
+    <script>
+        function showCakeVideo() {
+            <!-- Exibição do Vídeo do YouTube (Inicialmente Oculto) -->
+            {/* <article id="cakeVideo" class="cake-video"> */}
+            {/* </article> */}
+            document.getElementById('main-section').innerHTML = `
+                <article id="cakeVideo" class="cake-video">
+                </article>
+            `;
+
+            // embed do vídeo do YouTube
+            // link: https://youtu.be/dq58kEcp4OQ?si=2HPyC5GEzX4-PRfi
+            // sem controle, com autoplay e com loop
+            const html = `
+                <iframe
+                    src="https://www.youtube.com/embed/dq58kEcp4OQ?autoplay=1&loop=1&controls=0"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="autoplay"
+                    >
+                </iframe>
+            `;
+            document.getElementById('cakeVideo').style.display = 'flex';
+            document.getElementById('cakeVideo').innerHTML = html;
+            // bloqueia o mouse para não clicar no vídeo
+            document.getElementById('cakeVideo').style.pointerEvents = 'none';
+            // bloqueia o scroll para não rolar a página
+            document.body.style.overflow = 'hidden';
+        }
+    </script>
 </head>
 
 <body>
-    <section>
-        <article>
-            <h1>Home Page</h1>
-            <h2>Lucas Araujo</h2>
+    <header>
+        <h1>Bom te ver aqui</h1>
+        <span>Sim, estou te vendo 👀</span>
+        <h2>Me chamo Lucas Araujo e essa é minha pagina pessoal</h2>
 
-            <p>Bem vindo a minha pagina pessoal!</p>
-            <p>A pagina ainda está em construção, mas você pode conferir alguns dos meus projetos no meu GitHub.</p>
+        <p>
+            A pagina ainda está em construção, mas você pode conferir alguns dos meus projetos no meu GitHub.
+        </p>
+    </header>
 
-            <ul class="text-list">
-                <li>
-                    <a href="https://github.com/araujoLuka/CrazyGuitar" target="_blank">
-                        Crazy Guitar
+    <main>
+        <section id="main-section">
+            <article>
+                <ul class="text-list">
+                    <li>
+                        <a href="https://github.com/araujoLuka/CrazyGuitar" target="_blank">
+                            Crazy Guitar
+                        </a>
+                        <span>Jogo feito em C++ e Unreal inspirado no Guitar Hero</span>
+                    </li>
+                    <li>
+                        <a href="https://github.com/araujoLuka/ballz" target="_blank">
+                            Ballz
+                        </a>
+                        <span>Jogo feito em C e Allegro, replicando o jogo mobile Ballz</span>
+                    </li>
+                </ul>
+            </article>
+
+            <article>
+                <h2>Links</h2>
+                <ul class="button-list">
+                    <li>
+                        <button>
+                            <a href="https://www.linkedin.com/in/lukaraujo/" target="_blank">LinkedIn</a>
+                        </button>
+                    </li>
+                    <li>
+                        <button>
+                            <a href="https://github.com/araujoLuka" target="_blank">GitHub</a>
+                        </button>
+                    </li>
+                </ul>
+                <p style="margin-top: 1rem;">
+                    Inclusive, clique no botão abaixo para receber um delicioso bolo com entrega grátis
+                </p>
+                <button class="cake-button" onclick="showCakeVideo()">
+                    <a alt="Bolo Gratis" title="Bolo Gratis">
+                        Bolo Gratis
                     </a>
-                    <span>Jogo feito em C++ e Unreal inspirado no Guitar Hero</span>
-                </li>
-                <li>
-                    <a href="https://github.com/araujoLuka/ballz" target="_blank">
-                        Ballz
-                    </a>
-                    <span>Jogo feito em C e Allegro, replicando o jogo mobile Ballz</span>
-                </li>
-            </ul>
-        </article>
-
-        <article>
-            <h2>Links</h2>
-            <ul class="button-list">
-                <li>
-                    <button>
-                        <a href="https://www.linkedin.com/in/lukaraujo/" target="_blank">LinkedIn</a>
-                    </button>
-                </li>
-                <li>
-                    <button>
-                        <a href="https://github.com/araujoLuka" target="_blank">GitHub</a>
-                    </button>
-                </li>
-            </ul>
-        </article>
-    </section>
+                </button>
+            </article>
+            <article class="cake">
+                <span class="one">
+                    the cake is a <span style="text-decoration: underline">lie</span>
+                </span>
+                <span class="two">
+                    the cake is a <span style="text-decoration: line-through;">lie</span> <span
+                        style="color: red;">truth</span>
+                </span>
+            </article>
+        </section>
+    </main>
     <footer class="top">
         <img src="/images/logo.svg" alt="" />
         <div class="links">

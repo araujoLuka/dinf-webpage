@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&display=swap");
 
+:root {
+    --button-color: #2455fc;
+    --button-hover-color: #5d7efc;
+}
+
 #root,
 html,
 body {
@@ -18,6 +23,7 @@ body {
 	margin: 0;
 }
 
+header,
 section,
 article {
 	display: flex;
@@ -33,12 +39,6 @@ section {
 article {
     padding: 0.5rem;
     margin-bottom: 1.5rem;
-}
-
-h1 {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-    margin-top: 1.5rem;
 }
 
 button > a {
@@ -77,12 +77,12 @@ ul.text-list {
 
     a {
         font-weight: 600;
-        color: #2455fc;
+        color: var(--button-color);
         font-size: 18px;
     }
     
     a:hover {
-        color: #5d7efc;
+        color: var(--button-hover-color);
     }
 
     li {
@@ -117,7 +117,7 @@ button {
 	padding: 10px;
 	border-radius: 5px;
 	cursor: pointer;
-	background: #2455fc;
+	background: var(--button-color);
 	color: #fff;
 	> a {
 		font-weight: 600;
@@ -127,8 +127,8 @@ button {
 }
 
 button:hover {
-	background: #5d7efc;
-	box-shadow: 0 0 10px #5d7efc;
+	background: var(--button-hover-color);
+	box-shadow: 0 0 10px var(--button-hover-color);
 	width: 200px;
 }
 
