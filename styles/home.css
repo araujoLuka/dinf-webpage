@@ -144,3 +144,14 @@ button:hover {
 	box-shadow: 0 0 10px var(--button-hover-color);
 	width: 200px;
 }
+
+@media (max-width: 768px) {
+    article p,
+    article span {
+        font-size: 12px;
+    }
+
+    ul.text-list {
+        grid-template-columns: 1fr;
+    }
+}

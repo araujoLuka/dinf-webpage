@@ -52,19 +52,3 @@ body {
 ::-webkit-scrollbar-thumb:hover {
 	background: #17f;
 }
-
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
-    }
-
-    article p,
-    article span {
-        font-size: 12px;
-    }
-
-    ul.text-list {
-        grid-template-columns: 1fr;
-    }
-}
-
