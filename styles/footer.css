@@ -2,9 +2,9 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #161616;
+    background-color: var(--footer-bg-color);
     gap: 0.75rem;
-    color: #a2b5cd;
+    color: var(--footer-text-color);
     padding: 1.5rem 1rem;
     letter-spacing: 0.5px;
 }
@@ -28,6 +28,7 @@ footer .links > div {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 1rem;
+    margin-bottom: 1rem;
 }
 
 footer .links > div :first-child {
@@ -39,14 +40,14 @@ footer .links i {
 }
 
 footer .links a {
-    color: #a2b5cd;
+    color: var(--footer-text-color);
     border-radius: 0.25rem;
-    transition: all 0.2s ease-in-out;
+    transition: all 200ms ease-in-out;
     font-weight: 600;
 }
 
 footer .links a:hover {
-    background-color: #333;
+    background-color: var(--footer-link-hover-color);
 }
 
 footer .legal {
@@ -59,7 +60,7 @@ footer .legal a {
 }
 
 footer .legal a:hover {
-    color: #2dc1f3;
+    color: var(--footer-link-hover-color);
 }
 
 footer .legal > span {
@@ -70,11 +71,11 @@ footer h2 {
     margin: 0;
     font-size: 1rem;
     font-weight: 600;
-    color: #f0f0f0;
+    color: var(--text-color);
 }
 
 /* Desktops */
-@media (min-width: 768px) {
+@media (min-width: 800px) {
     footer {
         flex-direction: column;
     }
@@ -93,12 +94,12 @@ footer h2 {
     }
 
     footer .links a:hover {
-        padding: 0.5rem 0.75rem;
+        padding: 0.5rem 1.5rem;
     }
 }
 
 /* Tablets */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     @media (min-width: 600px) {
         footer {
             padding: 2rem;
@@ -114,6 +115,7 @@ footer h2 {
 
         footer .links a:hover {
             padding: 0.75rem 1rem;
+            margin: 0.25rem 0;
         }
 
         footer .links h2 {
@@ -173,7 +175,7 @@ footer h2 {
         display: grid;
         grid-template-columns: 1fr;
         align-items: center;
-        background-color: #222;
+        background-color: var(--secondary-bg-color);
         width: calc(50% - 2rem * 2);
         height: 6rem;
     }

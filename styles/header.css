@@ -1,24 +1,5 @@
-body > header {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 0;
-
-    span {
-        font-size: 1.2em;
-        font-weight: bold;
-        margin-bottom: 0.5em;
-        position: relative;
-        left: 0.5rem;
-    }
-
-    * {
-        margin: 0;
-        pointer-events: none;
-    }
-}
-
 header {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,10 +10,11 @@ header {
     margin-top: 1.5rem;
 
     h1 {
-        text-shadow: 0 0 3px #fff;
+        text-shadow: 0 0 3px rgba(200, 200, 200, 0.5);
         text-align: center;
         padding-top: 2rem;
         padding-bottom: 1rem;
+        color: var(--h-color);
         @media (max-width: 600px) {
             font-size: 3.5rem !important;
             white-space: wrap;
@@ -55,6 +37,31 @@ header {
         font-size: 1.2em;
         font-weight: bold;
         margin-bottom: 0.5em;
+    }
+
+    #themeButton {
+        align-self: flex-end;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 36px;
+        height: 36px;
+        margin-top: 0.5rem;
+        margin-right: 1rem;
+        padding: 0;
+        pointer-events: all;
+        background: none;
+        border: none;
+        border-radius: 50%;
+        font-size: 18px;
+
+        i.fa-sun {
+            color: #f1c40f;
+        }
+
+        i.fa-moon {
+            color: #2a2ca2;
+        }
     }
 }
 

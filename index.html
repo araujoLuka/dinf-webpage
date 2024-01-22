@@ -12,7 +12,6 @@
     <meta name="description" content="My personal home page" />
     <meta name="author" content="Lucas Correia de Araujo" />
 
-    <link rel="stylesheet" href="styles/cake.css" />
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="stylesheet" href="styles/footer.css" />
     <link rel="stylesheet" href="styles/home.css" />
@@ -24,8 +23,13 @@
 
 </head>
 
-<body>
+<body class="">
     <header>
+        <!-- /* Icon to Light/Dark mode */ -->
+        <button id="themeButton" onclick="changeTheme()">
+            <i id="themeIcon" class="fas fa-sun"></i>
+        </button>
+
         <h1>Lucas Araujo</h1>
         <h3>Desenvolvedor de Software e Soluções Inteligentes</h3>
     </header>
@@ -130,6 +134,22 @@
             </span>
         </div>
     </footer>
+
+    <script>
+        const changeTheme = () => {
+            const body = document.querySelector("body");
+            const themeButton = document.querySelector("#themeButton");
+            if (body.classList.contains("light")) {
+                body.classList.remove("light");
+                themeIcon.classList.add("fa-sun"); 
+                themeIcon.classList.remove("fa-moon");
+            } else {
+                body.classList.add("light");
+                themeIcon.classList.add("fa-moon");
+                themeIcon.classList.remove("fa-sun");
+            }
+        };
+    </script>
 </body>
 
 </html>

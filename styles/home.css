@@ -17,14 +17,10 @@ article {
     width: 100%;
 }
 
-button > a {
-	text-decoration: none;
-	color: #fff;
-}
-
+button > a,
 a {
     text-decoration: none;
-    color: #fff;
+    color: var(--text-color);
 }
 
 article p,
@@ -63,6 +59,7 @@ ul.text-list {
     }
 
     a {
+        color: var(--h-color);
         font-weight: 600;
         font-size: 24px;
         text-shadow: 0 0 5px rgba(200, 200, 200, 0.5);
@@ -91,17 +88,15 @@ ul.text-list {
         line-height: 1.5rem;
         justify-self: center;
         border-radius: 5px;
-        background: linear-gradient(45deg, #1c1c1c, #1e1e1e);
-        border: 3px solid rgba(10, 10, 10, 0.4);
-        transition: all 300ms ease-in;
+        background: var(--card-color);
+        transition: all 200ms ease-in;
         pointer-events: visible;
         cursor: pointer;
     }
 
     li:hover {
-        background: linear-gradient(45deg, #1d1d1d, #212121);
-        border: 3px solid rgba(90, 90, 90, 0.6);
-        box-shadow: 0 0 10px rgba(90, 90, 90, 0.4);
+        background: var(--button-color);
+        box-shadow: 0 0 10px rgba(200, 200, 200, 0.5);
     }
 }
 
@@ -125,7 +120,7 @@ button {
 	border-radius: 5px;
 	cursor: pointer;
 	background: var(--button-color);
-	color: #fff;
+	color: var(--text-color);
 	> a {
 		font-weight: 600;
         font-size: 14px;
