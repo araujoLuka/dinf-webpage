@@ -1,3 +1,23 @@
+body > header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0;
+
+    span {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+        position: relative;
+        left: 0.5rem;
+    }
+
+    * {
+        margin: 0;
+        pointer-events: none;
+    }
+}
+
 header {
     display: flex;
     flex-direction: column;
@@ -31,5 +51,19 @@ header {
         font-size: 1.2em;
         font-weight: bold;
         margin-bottom: 0.5em;
+    }
+}
+
+section header {
+    width: 100%;
+
+    h2 {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    h3 {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
     }
 }
