@@ -13,20 +13,13 @@ section {
 }
 
 article {
-    padding: 1rem;
+    padding: 2.5rem;
     width: 100%;
 }
 
 button > a {
 	text-decoration: none;
 	color: #fff;
-}
-
-h2 {
-    pointer-events: none;
-    font-size: 2rem;
-    text-shadow: 0 0 3px rgba(200, 200, 200, 0.2);
-    margin-bottom: 0;
 }
 
 a {

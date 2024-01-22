@@ -149,7 +149,7 @@ footer h2 {
 
     footer .links a {
         padding: 1rem;
-        font-size: 0.75rem;
+        font-size: 0.9rem;
         text-align: center;
     }
     
@@ -176,7 +176,6 @@ footer h2 {
         background-color: #222;
         width: calc(50% - 2rem * 2);
         height: 6rem;
-        font-size: 1rem;
     }
 
     footer .links div a i {
