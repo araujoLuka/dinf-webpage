@@ -3,8 +3,16 @@ var gravity = 0.98;
 var jumpForce = 20;
 var groundLevel = 0;
 var maxSpeed = 10;
-var forceBase = 1;
-var forceMultiplier = 2.5;
+var baseSpeed = 6;
+var forceIncrement = 0.1;
+var maxForce = 1;
+var airTurnSpeed = 3;
+var DirectionX;
+(function (DirectionX) {
+    DirectionX[DirectionX["Left"] = -1] = "Left";
+    DirectionX[DirectionX["Stop"] = 0] = "Stop";
+    DirectionX[DirectionX["Right"] = 1] = "Right";
+})(DirectionX || (DirectionX = {}));
 var Character = /** @class */ (function () {
     function Character() {
         this.size = 32;
@@ -14,6 +22,7 @@ var Character = /** @class */ (function () {
         this.isMovingKeyDown = false;
         this.isStopped = false;
         this.sign = 1;
+        this.lastDirection = DirectionX.Stop;
         this.element = document.createElement("div");
         this.element.className = "character";
         this.element.style.width = "".concat(this.size, "px");
@@ -28,12 +37,10 @@ var Character = /** @class */ (function () {
                 _this.jump();
             }
             else if (e.key === "ArrowRight") {
-                _this.moveStep(true);
-                _this.isMovingKeyDown = true;
+                _this.move(DirectionX.Right);
             }
             else if (e.key === "ArrowLeft") {
-                _this.moveStep(false);
-                _this.isMovingKeyDown = true;
+                _this.move(DirectionX.Left);
             }
         });
         document.addEventListener("keyup", function (e) {
@@ -72,25 +79,43 @@ var Character = /** @class */ (function () {
             this.pos.y++;
         }
     };
-    Character.prototype.moveStep = function (toRight) {
-        this.sign = toRight ? 1 : -1;
+    Character.prototype.moveStep = function (direction) {
         this.isStopped = false;
-        this.forceX = forceBase * this.sign;
+        this.isMovingKeyDown = true;
+        this.lastDirection = direction;
+        this.sign = direction;
+        this.vel.x = baseSpeed * this.sign;
+        this.forceX = forceIncrement * this.sign;
     };
-    Character.prototype.move = function (toRight) {
-        if (this.isStopped)
+    Character.prototype.move = function (direction) {
+        if (this.isStopped) {
+            this.moveStep(direction);
             return;
-        this.sign = toRight ? 1 : -1;
-        // TODO: Refactor
-        // - Need to create an accerelation vector
-        // - Acceleration vector should be multiplied by the time passed
-        // - Increase acceleration with time
-        // - Start decelerating when the key is released
-        if (this.isMovingKeyDown)
-            this.vel.x += this.forceX;
-        this.forceX *= forceMultiplier;
-        if (Math.abs(this.vel.x) > maxSpeed)
+        }
+        // If the character is in the air and the direction is different
+        // from the last direction, change the direction and reduce the speed
+        // to simulate air friction
+        if (!this.onGround() && direction !== this.lastDirection) {
+            this.vel.x = airTurnSpeed;
+            return;
+        }
+        if (direction !== this.lastDirection) {
+            this.moveStep(direction);
+            return;
+        }
+        // Limit speed
+        if (Math.abs(this.vel.x) > maxSpeed) {
             this.vel.x = maxSpeed * this.sign;
+            return;
+        }
+        // Increase force
+        this.forceX += forceIncrement * this.sign;
+        // Limit force
+        if (Math.abs(this.forceX) > maxForce) {
+            this.forceX = maxForce * this.sign;
+        }
+        // Increase speed
+        this.vel.x += this.forceX;
     };
     Character.prototype.stop = function () {
         this.isStopped = true;
@@ -100,9 +125,9 @@ var Character = /** @class */ (function () {
     Character.prototype.disaccelerate = function () {
         if (this.isMovingKeyDown)
             return;
-        this.forceX /= forceMultiplier;
-        this.vel.x *= 0.5;
-        if (Math.abs(this.forceX) < 0.1)
+        this.forceX = 0;
+        this.vel.x *= 0.3;
+        if (Math.abs(this.vel.x) < 0.1)
             this.stop();
     };
     Character.prototype.gravityForce = function () {
@@ -114,14 +139,14 @@ var Character = /** @class */ (function () {
         this.vel.y -= gravity;
     };
     Character.prototype.pushAway = function (limit, multiplier) {
-        if (multiplier === void 0) { multiplier = 2; }
+        if (multiplier === void 0) { multiplier = 5; }
         this.pos.x = limit;
-        this.vel.x *= -multiplier;
+        this.stop();
+        this.updateElementPos();
     };
     Character.prototype.update = function () {
         this.gravityForce();
         this.disaccelerate();
-        this.move(this.sign > 0);
         this.updatePosition();
     };
     return Character;
@@ -140,17 +165,21 @@ var Game = /** @class */ (function () {
             _this.update();
         }, 1000 / 60);
     };
+    Game.prototype.checkLimits = function () {
+        this.leftLimit = 50;
+        this.rightLimit = window.innerWidth - this.character.getSize();
+        this.rightLimit -= this.leftLimit;
+        if (this.character.getX() < this.leftLimit)
+            this.character.pushAway(this.leftLimit);
+        else if (this.character.getX() > this.rightLimit)
+            this.character.pushAway(this.rightLimit);
+    };
     Game.prototype.update = function () {
         this.character.update();
         if (this.character.getY() < groundLevel) {
             this.character.setY(groundLevel);
         }
-        if (this.character.getX() < 50) {
-            this.character.pushAway(60);
-        }
-        else if (this.character.getX() + this.character.getSize() > window.innerWidth - 50) {
-            this.character.pushAway(window.innerWidth - this.character.getSize() - 60);
-        }
+        this.checkLimits();
     };
     return Game;
 }());
