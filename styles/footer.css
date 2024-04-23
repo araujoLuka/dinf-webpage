@@ -60,7 +60,7 @@ footer .legal a {
 }
 
 footer .legal a:hover {
-    color: var(--footer-link-hover-color);
+    color: var(--footer-a-hover-color);
 }
 
 footer .legal > span {

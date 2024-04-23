@@ -50,18 +50,22 @@ header {
         margin-right: 1rem;
         padding: 0;
         pointer-events: all;
-        background: none;
+        background: var(--theme-button-bg-color);
         border: none;
         border-radius: 50%;
         font-size: 18px;
 
         i.fa-sun {
-            color: #f1c40f;
+            color: var(--theme-button-color);
         }
 
         i.fa-moon {
-            color: #2a2ca2;
+            color: var(--theme-button-color);
         }
+    }
+
+    button:hover {
+        background: var(--theme-button-hover-bg-color) !important;
     }
 }
 

@@ -264,7 +264,7 @@ class Game {
 
 	constructor() {
 		this.canvas = document.createElement("canvas");
-		this.canvas.id = "gameContainer";
+		this.canvas.id = "game";
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
         this.ctx = null;

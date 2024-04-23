@@ -207,7 +207,7 @@ var Character = /** @class */ (function () {
 var Game = /** @class */ (function () {
     function Game() {
         this.canvas = document.createElement("canvas");
-        this.canvas.id = "gameContainer";
+        this.canvas.id = "game";
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
         this.ctx = null;
